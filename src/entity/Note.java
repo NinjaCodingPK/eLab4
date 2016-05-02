@@ -1,7 +1,7 @@
 package entity;
 
 import controller.Regulars;
-
+import java.lang.StringBuilder;
 import java.util.Date;
 
 /**
@@ -22,6 +22,22 @@ public class Note {
     private Adress adress;
     private String introductionDate;
     private String lastChangeDate;
+
+    /**
+     *
+     * @return a full name. (Surname + first letter of name. + first letter of middle name.)
+     */
+    public String getFullName() {
+        StringBuilder strBuild = new StringBuilder(this.getSurname());
+
+        strBuild.append(" ");
+        strBuild.append(new StringBuffer(this.getName()).charAt(0));
+        strBuild.append(". ");
+        strBuild.append(new StringBuffer(this.getMiddleName()).charAt(0));
+        strBuild.append(".");
+
+        return strBuild.toString();
+    }
 
     public Group getGroup() {
         return group;

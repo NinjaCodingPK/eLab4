@@ -18,7 +18,7 @@ public class View {
     public static final String ADRESS = "Adress";
     public static final String INTRODUCTION_DATE = "Introduction date";
     public static final String LAST_CHANGE_DATE = "Last change date";
-    public static final String WRONG_INPUT_INT_DATA = "Wrong input! Repeat please! ";
+    public static final String WRONG_INPUT_DATA = "Wrong input! Repeat please! ";
     public static final String INDEX = "Index";
     public static final String TOWN = "Town";
     public static final String STREET = "Street";

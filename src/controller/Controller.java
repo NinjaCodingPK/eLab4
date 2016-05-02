@@ -36,27 +36,25 @@ public class Controller {
     private void inputNewNote(Scanner sc) {
         Note note = new Note();
         Adress adress = new Adress();
-        note.setSurname(inputValidString(sc, Regulars.REGEX_NAME, View.SURNAME));
-        note.setName(inputValidString(sc, Regulars.REGEX_NAME, View.NAME));
-        note.setMiddleName(inputValidString(sc, Regulars.REGEX_NAME, View.MIDDLENAME));
-        note.setNickname(inputValidString(sc, Regulars.REGEX_STRING, View.NICKNAME));
+//        note.setSurname(inputValidString(sc, Regulars.REGEX_NAME, View.SURNAME));
+//        note.setName(inputValidString(sc, Regulars.REGEX_NAME, View.NAME));
+//        note.setMiddleName(inputValidString(sc, Regulars.REGEX_NAME, View.MIDDLENAME));
+//        note.setNickname(inputValidString(sc, Regulars.REGEX_STRING, View.NICKNAME));
         note.setCommentary(inputValidString(sc, Regulars.REGEX_COMMENTARY, View.COMMENTARY));
-        note.setGroup(Group.valueOf(inputValidString(sc, Regulars.REGEX_GROUP, View.GROUP)));
-        note.setPhoneNumber(inputValidString(sc, Regulars.REGEX_HOME_PHONE, View.PHONE_NUMBER));
-        note.setCellPhoneNumber(inputValidString(sc, Regulars.REGEX_CELL_PHONE, View.CELL_PHONE_NUMBER));
-        note.setEmail(inputValidString(sc, Regulars.REGEX_MAIL, View.EMAIL));
-        note.setSkype(inputValidString(sc, Regulars.REGEX_STRING, View.SKYPE));
-        adress.setIndex(inputValidString(sc, Regulars.REGEX_INDEX, View.INDEX));
-        adress.setTown(inputValidString(sc, Regulars.REGEX_NAME, View.TOWN));
-        adress.setStreet(inputValidString(sc, Regulars.REGEX_NAME, View.STREET));
-        adress.setHomeNumber(inputValidString(sc, Regulars.REGEX_NUMBER, View.HOME_NUMBER));
-        adress.setFlatNumber(inputValidString(sc, Regulars.REGEX_NUMBER, View.FLAT_NUMBER));
-        note.setAdress(adress);
-        note.setIntroductionDate(Regulars.DATE_FORMAT.format(new Date()));
-
+//        note.setGroup(Group.valueOf(inputValidString(sc, Regulars.REGEX_GROUP, View.GROUP)));
+//        note.setPhoneNumber(inputValidString(sc, Regulars.REGEX_HOME_PHONE, View.PHONE_NUMBER));
+//        note.setCellPhoneNumber(inputValidString(sc, Regulars.REGEX_CELL_PHONE, View.CELL_PHONE_NUMBER));
+//        note.setEmail(inputValidString(sc, Regulars.REGEX_MAIL, View.EMAIL));
+//        note.setSkype(inputValidString(sc, Regulars.REGEX_STRING, View.SKYPE));
+//        adress.setIndex(inputValidString(sc, Regulars.REGEX_INDEX, View.INDEX));
+//        adress.setTown(inputValidString(sc, Regulars.REGEX_NAME, View.TOWN));
+//        adress.setStreet(inputValidString(sc, Regulars.REGEX_NAME, View.STREET));
+//        adress.setHomeNumber(inputValidString(sc, Regulars.REGEX_NUMBER, View.HOME_NUMBER));
+//        adress.setFlatNumber(inputValidString(sc, Regulars.REGEX_NUMBER, View.FLAT_NUMBER));
+//        note.setAdress(adress);
+//        note.setIntroductionDate(Regulars.DATE_FORMAT.format(new Date()));
 
         this.notebook.addNote(note);
-        view.printMessage(this.notebook.getNotebook().get(0).getGroup().toString());
     }
 
     /**
@@ -70,19 +68,23 @@ public class Controller {
         Pattern p = Pattern.compile(regexp);
         Matcher m;
 
-//        while( ! sc.hasNext(p)) {
-//            System.out.println("No");
-//            sc.next();
-//        }
-
         String temp;
         do {
             view.printBigMessage(View.INPUT_DATA_REQUEST, message);
             temp = sc.next();
-            m =  p.matcher(temp);
+            m = p.matcher(temp);
+            if(!m.matches()) {
+                view.printMessage(View.WRONG_INPUT_DATA);
+            }
         } while(!m.matches());
 
-        //return sc.next(p);
+//        while( ! sc.hasNext(p)) {
+//            System.out.println("No");
+//            sc.nextLine();
+//        }
+//        System.out.println("yes");
+
+        //return temp;
         return temp;
     }
 
