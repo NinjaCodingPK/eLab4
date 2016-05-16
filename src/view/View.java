@@ -25,9 +25,6 @@ public class View {
     public static final String HOME_NUMBER = "Home number";
     public static final String FLAT_NUMBER = "Flat number";
 
-    //public void printMessage(String message){
-       // System.out.println(message);
-    //}
 
     public void printMessage(String... message) {
         StringBuilder concatString = new StringBuilder();
