@@ -25,16 +25,16 @@ public class View {
     public static final String HOME_NUMBER = "Home number";
     public static final String FLAT_NUMBER = "Flat number";
 
-    public void printMessage(String message){
-        System.out.println(message);
-    }
+    //public void printMessage(String message){
+       // System.out.println(message);
+    //}
 
-    public void printBigMessage(String... message) {
+    public void printMessage(String... message) {
         StringBuilder concatString = new StringBuilder();
         for (String m : message) {
             concatString = concatString.append(m);
         }
 
-        this.printMessage(concatString.toString());
+        System.out.println(concatString.toString());
     }
 }
